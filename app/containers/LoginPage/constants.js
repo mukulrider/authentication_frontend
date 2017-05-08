@@ -4,8 +4,9 @@
  *
  */
 
-export const LOGIN = 'app/Login/LOGIN';
-export const LOGIN_SUCCESS = 'app/Login/LOGIN_SUCCESS';
-export const LOGIN_ERROR = 'app/Login/LOGIN_ERROR';
-export const USERNAME = 'app/Login/USERNAME';
-export const PASSWORD = 'app/Login/PASSWORD';
+export const LOGIN = 'app/LoginPage/LOGIN';
+export const LOGIN_SUCCESS = 'app/LoginPage/LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'app/LoginPage/LOGIN_ERROR';
+export const USERNAME = 'app/LoginPage/USERNAME';
+export const PASSWORD = 'app/LoginPage/PASSWORD';
+export const USER_PARAM = 'app/LoginPage/USER_PARAM';

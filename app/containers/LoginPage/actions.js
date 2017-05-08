@@ -10,6 +10,7 @@ import {
   LOGIN,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  USER_PARAM,
 } from './constants';
 
 export function username(data) {
@@ -41,5 +42,11 @@ export function loginSuccess() {
 export function loginError() {
   return {
     type: LOGIN_ERROR,
+  };
+}
+
+export function fetchUserParams() {
+  return {
+    type: USER_PARAM,
   };
 }

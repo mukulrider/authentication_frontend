@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import makeSelectLoginPage from './selectors';
-import { username, password, login } from './actions';
+import { username, password, login, fetchUserParams } from './actions';
 
 export class LoginPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -49,6 +49,7 @@ export class LoginPage extends React.PureComponent { // eslint-disable-line reac
               <Button
                 buttonType={'primary'} onClick={() => {
                   this.props.onLogin();
+                  this.props.onLoginSuccessUserParam();
                 }}
               >Sign In</Button>
             </div>
@@ -72,6 +73,7 @@ function mapDispatchToProps(dispatch) {
     onUsername: (e) => dispatch(username(e)),
     onPassword: (e) => dispatch(password(e)),
     onLogin: (e) => dispatch(login(e)),
+    onLoginSuccessUserParam: (e) => dispatch(fetchUserParams(e)),
     dispatch,
   };
 }
