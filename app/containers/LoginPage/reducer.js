@@ -12,7 +12,7 @@ import {
 
 const initialState = fromJS({
   username: 'harmanjeet.singh@mu-sigma.com',
-  password: 'easy@2345',
+  password: 'random@123',
 });
 
 

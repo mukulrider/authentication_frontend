@@ -45,10 +45,10 @@ class Header extends Component {
 
   static defaultProps = {
     links: [
-      { text: 'Login', icon: 'login', href: 'http://localhost:3000/login/' },
-      { text: 'Reporting', icon: 'reporting', href: 'http://localhost:3001/sales/' },
-      { text: 'Pricing', icon: 'pricing', href: 'http://localhost:3002/pricing/' },
-      { text: 'Ranging', icon: 'ranging', href: 'http://localhost:3003/ranging/' },
+      { text: 'Login', icon: 'login', href: 'http://10.1.244.200:3000/login/' },
+      { text: 'Reporting', icon: 'reporting', href: 'http://10.1.244.200:3001/sales/' },
+      { text: 'Pricing', icon: 'pricing', href: 'http://10.1.244.200:3002/pricing/' },
+      { text: 'Ranging', icon: 'ranging', href: 'http://10.1.244.200:3003/ranging/' },
       { text: 'Tesco.com', icon: 'home', href: 'http://www.tesco.com/' },
       { text: 'Contact us', icon: 'telephone', href: 'http://www.tesco.com/help/contact/' },
       { text: 'Help', icon: 'help', href: 'http://www.tesco.com/help/' }],
