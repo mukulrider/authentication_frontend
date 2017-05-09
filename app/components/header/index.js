@@ -45,16 +45,15 @@ class Header extends Component {
 
   static defaultProps = {
     links: [
-      { text: 'Login', icon: 'login', href: 'http://10.1.244.200:3000/login/' },
-      { text: 'Reporting', icon: 'reporting', href: 'http://10.1.244.200:3001/' },
-      { text: 'Pricing', icon: 'pricing', href: 'http://10.1.244.200:3002/pricing' },
-      { text: 'Ranging', icon: 'ranging', href: 'http://10.1.244.200:3003/ranging' },
+      { text: 'Login', icon: 'login', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/' },
+      { text: 'Reporting', icon: 'reporting', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/competitor' },
+      { text: 'Pricing', icon: 'pricing', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing' },
+      { text: 'Ranging', icon: 'ranging', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging' },
       { text: 'Tesco.com', icon: 'home', href: 'http://www.tesco.com/' },
       { text: 'Contact us', icon: 'telephone', href: 'http://www.tesco.com/help/contact/' },
       { text: 'Help', icon: 'help', href: 'http://www.tesco.com/help/' }],
     logo: {
-      href: 'http://www.tesco.com',
-      imageSrc: tesco,
+      href: 'http://www.tesco.com', imageSrc: tesco,
       altText: 'Tesco logo',
     },
     classes: '',
@@ -192,8 +191,8 @@ class Header extends Component {
                         style={{ float: 'right' }}
                         onClick={() => {
                           console.log('loggingOut');
-                          document.cookie = 'token' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;Path=/;';
-                          window.location = 'http://10.1.244.200:3000/login/';
+                          document.cookie = 'token'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=dvcmpweb00001uk.dev.global.tesco.org;path=/;';
+                          window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/';
                         }}
                       >Logout</Button></div> : '';
                 })()};

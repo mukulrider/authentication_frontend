@@ -32,10 +32,10 @@ export default class App extends React.PureComponent {
     };
     const token = getCookie('token');
     if (token && this.props.location.pathname.includes('login')) {
-      window.location = 'http://10.1.244.200:3000'
+      window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86'
     }
     if (!token && !this.props.location.pathname.includes('login')) {
-      window.location = 'http://10.1.244.200:3000/login/'
+      window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/'
     }
   }
 

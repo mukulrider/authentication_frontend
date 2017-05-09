@@ -14,7 +14,7 @@ export function* generateLogin() {
   const password = login.get('password');
 
   try {
-    const data = yield call(request, 'http://10.1.244.200:8000/api/obtain-auth-token/',
+    const data = yield call(request, 'http://dvcmpapp00003uk.dev.global.tesco.org:83/api/obtain-auth-token/',
       {
         method: 'POST',
         headers: {
@@ -22,10 +22,10 @@ export function* generateLogin() {
           'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-    document.cookie = `token=${data.token};domain=10.1.244.200;path=/`;
-    window.location = '/';
+    document.cookie = `token=${data.token};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/';
   } catch (err) {
-    window.location = '/login/';
+    window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/';
   }
 }
 
@@ -40,20 +40,20 @@ export function* generateUserParams() {
   const login = yield select(selectLoginPageDomain());
   const username = login.get('username');
   try {
-    const data = yield call(request, 'http://10.1.244.200:8000/api/obtain-user-params/');
+    const data = yield call(request, 'http://dvcmpapp00003uk.dev.global.tesco.org:83/api/obtain-user-params/');
     const findInObject = (myObject, myCriteria) => myObject.filter((obj) => Object.keys(myCriteria).every((c) => obj[c] === myCriteria[c]));
     const dataStr = JSON.stringify(data);
     const userFilteredData = findInObject(JSON.parse(dataStr),
       {
         user: username,
       });
-    document.cookie = `category_director=${userFilteredData[0].category_director};domain=10.1.244.200;path=/`;
-    document.cookie = `commercial_director=${userFilteredData[0].commercial_director};domain=10.1.244.200;path=/`;
-    document.cookie = `buying_controller=${userFilteredData[0].buying_controller};domain=10.1.244.200;path=/`;
-    document.cookie = `buyer=${userFilteredData[0].buyer};domain=10.1.244.200;path=/`;
-    document.cookie = `junior_buyer=${userFilteredData[0].junior_buyer};domain=10.1.244.200;path=/`;
-    document.cookie = `designation=${userFilteredData[0].designation};domain=10.1.244.200;path=/`;
-    document.cookie = `login_timestamp=${userFilteredData[0].login_timestamp};domain=10.1.244.200;path=/`;
+    document.cookie = `category_director=${userFilteredData[0].category_director};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `commercial_director=${userFilteredData[0].commercial_director};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `buying_controller=${userFilteredData[0].buying_controller};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `buyer=${userFilteredData[0].buyer};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `junior_buyer=${userFilteredData[0].junior_buyer};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `designation=${userFilteredData[0].designation};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
+    document.cookie = `login_timestamp=${userFilteredData[0].login_timestamp};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
   } catch (err) {
     console.log('Some error happened, check LoginPage sagas');
   }
