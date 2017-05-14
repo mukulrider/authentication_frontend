@@ -24,8 +24,8 @@ export default class App extends React.PureComponent {
   };
 
   componentWillMount() {
-    const hostName = '172.20.246.60';
-    const hostPort = '3000';
+    const hostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+    const hostPort = '80';
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);

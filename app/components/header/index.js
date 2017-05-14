@@ -45,10 +45,10 @@ class Header extends Component {
 
   static defaultProps = {
     links: [
-      { text: 'Login', icon: 'login', href: 'http://172.20.246.60:3000/login/' },
-      { text: 'Reporting', icon: 'reporting', href: 'http://172.20.246.60:3001/' },
-      { text: 'Pricing', icon: 'pricing', href: 'http://172.20.246.60:3002/pricing' },
-      { text: 'Ranging', icon: 'ranging', href: 'http://172.20.246.60:3003/ranging' },
+      { text: 'Login', icon: 'login', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/' },
+      { text: 'Reporting', icon: 'reporting', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/competitor' },
+      { text: 'Pricing', icon: 'pricing', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing' },
+      { text: 'Ranging', icon: 'ranging', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging' },
       { text: 'Tesco.com', icon: 'home', href: 'http://www.tesco.com/' },
       { text: 'Contact us', icon: 'telephone', href: 'http://www.tesco.com/help/contact/' },
       { text: 'Help', icon: 'help', href: 'http://www.tesco.com/help/' }],
@@ -190,8 +190,8 @@ class Header extends Component {
                         buttonType={'primary'}
                         style={{ float: 'right' }}
                         onClick={() => {
-                          const hostName = '172.20.246.60';
-                          const hostPort = '3000';
+                          const hostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+                          const hostPort = '80';
                           document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                           window.location = `http://${hostName}:${hostPort}/login/`;
                         }}
