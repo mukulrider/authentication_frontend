@@ -29,9 +29,9 @@ export function* generateLogin() {
         body: JSON.stringify({ username, password }),
       });
     document.cookie = `token=${data.token};domain=${frontendHostName};path=/`;
-    window.location = `${frontendHostName}:${frontendHostPort}/`;
+    window.location = `http://${frontendHostName}:${frontendHostPort}/`;
   } catch (err) {
-    window.location = `${backendHostName}:${backendHostPort}/login/`;
+    window.location = `http://${backendHostName}:${backendHostPort}/login/`;
   }
 }
 

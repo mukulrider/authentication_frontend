@@ -24,7 +24,8 @@ export default class App extends React.PureComponent {
   };
 
   componentWillMount() {
-    const hostName = 'http://10.1.244.200:3000';
+    const hostName = '172.20.246.60';
+    const hostPort = '3000';
     const getCookie = (name) => {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
@@ -36,10 +37,10 @@ export default class App extends React.PureComponent {
     };
     const token = getCookie('token');
     if (token && this.props.location.pathname.includes('login')) {
-      window.location = `${hostName}`;
+      window.location = `http://${hostName}:${hostPort}/`;
     }
     if (!token && !this.props.location.pathname.includes('login')) {
-      window.location = `${hostName}`;
+      window.location = `http://${hostName}:${hostPort}/login/`;
     }
   }
 
