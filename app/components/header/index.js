@@ -186,14 +186,14 @@ class Header extends Component {
 
                   return token ?
                     <div>
-                      <br/>
                       <Button
                         buttonType={'primary'}
                         style={{ float: 'right' }}
                         onClick={() => {
-                          console.log('loggingOut');
-                          document.cookie = 'token' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;Path=/;';
-                          window.location = 'http://10.1.244.200:3000/login/';
+                          const hostName = '172.20.246.60';
+                          const hostPort = '8000';
+                          document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
+                          window.location = `http://${hostName}:${hostPort}/login/`;
                         }}
                       >Logout</Button></div> : '';
                 })()};

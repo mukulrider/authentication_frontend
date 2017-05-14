@@ -24,21 +24,24 @@ export default class App extends React.PureComponent {
   };
 
   componentWillMount() {
-    let getCookie;
-    getCookie = (name) => {
+    const hostName = 'http://10.1.244.200:3000';
+    const getCookie = (name) => {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
+      if (parts.length === 2) {
+        return parts.pop().split(';').shift();
+      } else {
+        return 0;
+      }
     };
     const token = getCookie('token');
     if (token && this.props.location.pathname.includes('login')) {
-      window.location = 'http://10.1.244.200:3000'
+      window.location = `${hostName}`;
     }
     if (!token && !this.props.location.pathname.includes('login')) {
-      window.location = 'http://10.1.244.200:3000/login/'
+      window.location = `${hostName}`;
     }
   }
-
 
   render() {
     return (
