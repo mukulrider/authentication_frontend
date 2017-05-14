@@ -45,9 +45,9 @@ class Header extends Component {
 
   static defaultProps = {
     links: [
-      { text: 'Login', icon: 'login', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/' },
+      { text: 'Login', icon: 'login', href: 'http://dvcmpweb00001uk.dev.global.tesco.org/login/' },
       { text: 'Reporting', icon: 'reporting', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/competitor' },
-      { text: 'Pricing', icon: 'pricing', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing' },
+      { text: 'Pricing', icon: 'pricing', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing/' },
       { text: 'Ranging', icon: 'ranging', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging' },
       { text: 'Tesco.com', icon: 'home', href: 'http://www.tesco.com/' },
       { text: 'Contact us', icon: 'telephone', href: 'http://www.tesco.com/help/contact/' },
@@ -193,7 +193,16 @@ class Header extends Component {
                           const hostName = 'dvcmpweb00001uk.dev.global.tesco.org';
                           const hostPort = '80';
                           document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
+                          document.cookie = `token'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/;`;
+                          document.cookie = `category_director'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `commercial_director'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `buying_controller'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `buyer'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `junior_buyer'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `designation'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
+                          document.cookie = `login_timestamp'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
                           window.location = `http://${hostName}:${hostPort}/login/`;
+
                         }}
                       >Logout</Button></div> : '';
                 })()};

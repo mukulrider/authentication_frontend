@@ -1,5 +1,5 @@
 import { selectLoginPageDomain } from 'containers/LoginPage/selectors';
-import { take, call, select, cancel, takeLatest } from 'redux-saga/effects';
+import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import request from 'utils/request';
 import {
@@ -7,10 +7,10 @@ import {
   USER_PARAM,
 } from './constants';
 
-const frontendHostName = '172.20.246.60';
-const frontendHostPort = '3000';
-const backendHostName = '172.20.246.60';
-const backendHostPort = '8000';
+const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+const frontendHostPort = '80';
+const backendHostName = 'dvcmpapp00003uk.dev.global.tesco.org';
+const backendHostPort = '83';
 
 /* GENERATE LOGIN TOKEN */
 export function* generateLogin() {
@@ -19,12 +19,10 @@ export function* generateLogin() {
   const password = login.get('password');
 
   try {
-<<<<<<< HEAD
+
     const data = yield call(request,
       `http://${backendHostName}:${backendHostPort}/api/obtain-auth-token/`,
-=======
-    const data = yield call(request, 'http://dvcmpapp00003uk.dev.global.tesco.org:83/api/obtain-auth-token/',
->>>>>>> fcf5fb02c4b50d556187b4dbf126646bf635ec74
+
       {
         method: 'POST',
         headers: {
@@ -32,17 +30,11 @@ export function* generateLogin() {
           'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-<<<<<<< HEAD
+
     document.cookie = `token=${data.token};domain=${frontendHostName};path=/`;
     window.location = `http://${frontendHostName}:${frontendHostPort}/`;
   } catch (err) {
     window.location = `http://${backendHostName}:${backendHostPort}/login/`;
-=======
-    document.cookie = `token=${data.token};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/';
-  } catch (err) {
-    window.location = 'http://dvcmpweb00001uk.dev.global.tesco.org:86/login/';
->>>>>>> fcf5fb02c4b50d556187b4dbf126646bf635ec74
   }
 }
 
@@ -57,19 +49,14 @@ export function* generateUserParams() {
   const login = yield select(selectLoginPageDomain());
   const username = login.get('username');
   try {
-<<<<<<< HEAD
     const data = yield call(request,
       `http://${backendHostName}:${backendHostPort}/api/obtain-user-params/`);
-=======
-    const data = yield call(request, 'http://dvcmpapp00003uk.dev.global.tesco.org:83/api/obtain-user-params/');
->>>>>>> fcf5fb02c4b50d556187b4dbf126646bf635ec74
     const findInObject = (myObject, myCriteria) => myObject.filter((obj) => Object.keys(myCriteria).every((c) => obj[c] === myCriteria[c]));
     const dataStr = JSON.stringify(data);
     const userFilteredData = findInObject(JSON.parse(dataStr),
       {
         user: username,
       });
-<<<<<<< HEAD
     document.cookie = `user=${userFilteredData[0].user};domain=${frontendHostName};path=/`;
     document.cookie = `key=${userFilteredData[0].key};domain=${frontendHostName};path=/`;
     document.cookie = `first_name=${userFilteredData[0].first_name};domain=${frontendHostName};path=/`;
@@ -85,17 +72,8 @@ export function* generateUserParams() {
     document.cookie = `junior_buyer=${userFilteredData[0].junior_buyer};domain=${frontendHostName};path=/`;
     document.cookie = `product_sub_group_description=${userFilteredData[0].product_sub_group_description};domain=${frontendHostName};path=/`;
     document.cookie = `login_timestamp=${userFilteredData[0].login_timestamp};domain=${frontendHostName};path=/`;
-=======
-    document.cookie = `category_director=${userFilteredData[0].category_director};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `commercial_director=${userFilteredData[0].commercial_director};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `buying_controller=${userFilteredData[0].buying_controller};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `buyer=${userFilteredData[0].buyer};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `junior_buyer=${userFilteredData[0].junior_buyer};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `designation=${userFilteredData[0].designation};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
-    document.cookie = `login_timestamp=${userFilteredData[0].login_timestamp};domain=dvcmpweb00001uk.dev.global.tesco.org;path=/`;
->>>>>>> fcf5fb02c4b50d556187b4dbf126646bf635ec74
   } catch (err) {
-    alert('Some error happened, check LoginPage sagas');
+    console.log('Some error happened, check LoginPage sagas');
   }
 }
 
