@@ -1,4 +1,4 @@
-import Button from 'components/button';
+import { Nav, NavItem, DropdownButton, MenuItem } from 'react-bootstrap';
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Link from '../link';
@@ -173,39 +173,39 @@ class Header extends Component {
               <div className="ui-component__header__content--right">
                 <RoundedIconButton icon="menu" onClick={this.handleClick} label="Menu" />
               </div>
-              <div>
-                {(() => {
-                  const getCookie = (name) => {
-                    const value = `; ${document.cookie}`;
-                    const parts = value.split(`; ${name}=`);
-                    if (parts.length === 2) {
-                      return parts.pop().split(';').shift();
-                    }
-                  };
-                  const token = getCookie('token');
-
-                  return token ?
-                    <div>
-                      <Button
-                        buttonType={'primary'}
-                        style={{ float: 'right' }}
-                        onClick={() => {
-                          const hostName = 'dvcmpweb00001uk.dev.global.tesco.org';
-                          const hostPort = '80';
-                          document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
-                          document.cookie = `token'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/;`;
-                          document.cookie = `category_director'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `commercial_director'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `buying_controller'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `buyer'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `junior_buyer'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `designation'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          document.cookie = `login_timestamp'+'=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};path=/`;
-                          window.location = `http://${hostName}:${hostPort}/login/`;
-
-                        }}
-                      >Logout</Button></div> : '';
-                })()};
+              <div className="row">
+                <Nav bsStyle="tabs" className="tabsNavPanel" style={{ marginWidth: '5%' }}>
+                  <NavItem className="tabsNavPanelLogoutList" style={{ float: 'right', marginTop: '-8px' }}>
+                    <span>
+                      <span>
+                        <DropdownButton
+                          className="glyphicon glyphicon-user" pullRight style={{
+                            backgroundColor: 'transparent',
+                            borderColor: 'transparent',
+                            color: '#00539f',
+                            fontSize: '18px',
+                          }}
+                        >
+                          <MenuItem style={{ textDecoration: 'none' }}><span ><b>Hi,User</b></span></MenuItem>
+                          <MenuItem
+                            onClick={() => {
+                              const getCookie = (name) => {
+                                const value = `; ${document.cookie}`;
+                                const parts = value.split(`; ${name}=`);
+                                if (parts.length === 2) {
+                                  return parts.pop().split(';').shift();
+                                }
+                              };
+                              const token = getCookie('token');
+                              const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+                              const frontendHostPort = '80';
+                              document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
+                              window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
+                            }}
+                          >Logout</MenuItem>
+                        </DropdownButton></span>
+                    </span></NavItem>
+                </Nav>
               </div>
             </div>
           </Grid>
