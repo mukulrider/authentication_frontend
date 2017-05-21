@@ -31,6 +31,18 @@ function renderUtilityLinks(links, hasIcons) {
   );
 }
 
+const checkLoginState = (name) => {
+  let outValue = '';
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) {
+    outValue = parts.pop().split(';').shift();
+  } else {
+    outValue = 0;
+  }
+  return outValue;
+};
+
 class Header extends Component {
 
   static propTypes = {
@@ -179,39 +191,39 @@ class Header extends Component {
                     <span>
                       <span>
                         <DropdownButton
-                          className="glyphicon glyphicon-user" pullRight style={{
+                          className="glyphicon glyphicon-user" id="Logout"
+                          title=""
+                          pullRight style={{
                             backgroundColor: 'transparent',
                             borderColor: 'transparent',
                             color: '#00539f',
                             fontSize: '18px',
                           }}
                         >
-                          <MenuItem style={{ textDecoration: 'none' }}><span >Hi,User</span></MenuItem>
                           {(() => {
-                            const getCookie = (name) => {
-                              let outValue = '';
-                              const value = `; ${document.cookie}`;
-                              const parts = value.split(`; ${name}=`);
-                              if (parts.length === 2) {
-                                outValue = parts.pop().split(';').shift();
-                              } else {
-                                outValue = 0;
-                              }
-                              return outValue;
-                            };
-                            const token = getCookie('token');
+                            const token = checkLoginState('token');
+                            return token ?
+                              <div style={{ textDecoration: 'none' }}>
+                                <MenuItem style={{ textDecoration: 'none' }}><span >Hi, User</span></MenuItem>
+                              </div> :
+                              <div style={{ textDecoration: 'none' }}>
+                                <MenuItem style={{ textDecoration: 'none' }}><span >Please login</span></MenuItem>
+                              </div>;
+                          })()}
+                          {(() => {
+                            const token = checkLoginState('token');
                             return token ?
                               <div>
                                 <MenuItem
                                   onClick={() => {
-                                    const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
-                                    const frontendHostPort = '80';
+                                    const frontendHostName = '172.20.181.12';
+                                    const frontendHostPort = '3000';
                                     document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
                                     window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
                                   }}
                                 >Logout</MenuItem>
                               </div> : '';
-                          })()};
+                          })()}
                         </DropdownButton></span>
                     </span></NavItem>
                 </Nav>

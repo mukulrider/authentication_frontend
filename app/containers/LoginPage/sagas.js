@@ -1,5 +1,5 @@
 import { selectLoginPageDomain } from 'containers/LoginPage/selectors';
-import { take, call, put, select, cancel, takeLatest } from 'redux-saga/effects';
+import { take, call, select, cancel, takeLatest } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import request from 'utils/request';
 import {
@@ -19,7 +19,6 @@ export function* generateLogin() {
   const password = login.get('password');
 
   try {
-
     const data = yield call(request,
       `http://${backendHostName}:${backendHostPort}/api/obtain-auth-token/`,
 
@@ -34,7 +33,7 @@ export function* generateLogin() {
     document.cookie = `token=${data.token};domain=${frontendHostName};path=/`;
     window.location = `http://${frontendHostName}:${frontendHostPort}/`;
   } catch (err) {
-    window.location = `http://${backendHostName}:${backendHostPort}/login/`;
+    window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
   }
 }
 

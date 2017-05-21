@@ -317,3 +317,125 @@
     color: $white;
  }
 }
+
+//TABS
+.tabsCustomList {
+  //color: red;
+  //width: 30%;
+  //text-align: center;
+  //border-style: ridge;
+  //border-radius: 8px;
+  //margin-left: 35px;
+}
+.tabsCustomList ul li{
+  margin : 0px;
+  padding : 0px;
+}
+.tabsAppHeaderCustomList{
+  display: inline-block;
+  margin-top: 3px;
+  margin-left: 2px;
+  border-bottom: none;
+}
+
+.tabsCustomList {
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 30px;
+  border-bottom: none;
+}
+
+
+.tabsCustomList a:hover {
+  text-decoration: underline !important;
+  color: #008dc8;
+}
+
+
+.tabsCustomList span.tab_label {
+  //padding: 2px 8px;
+  //color: #048EC3;
+  //font-weight: 600;
+  font-weight: 600;
+  font-family: Tesco;
+  color: #00539f;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.tabsCustomList.active span.tab_label {
+  border-bottom: #048EC3 solid 4px;
+}
+.tabsCustomList a {
+  background: #fff;
+  font-family: 'Tesco' !important;
+  //padding: 15px 15px 16px 15px !important;
+  text-decoration: none;
+  font-size: 14px;
+}
+.nav {
+  margin-top: 24px;
+}
+.nav-tabs{
+  border-bottom: 0px;
+}
+.tabsCustomList a:hover ,
+.tabsCustomList a:active
+{
+  background: #fff !important;
+  border:0px;
+  border-bottom: 2px solid #00539f;
+  text-decoration: none !important;
+  border-color: #00539f !important;
+}
+
+
+
+//Tabs For the Navigation Panel
+
+.tabsNavPanel{
+  margin-top: 27px !important;
+}
+
+.tabsNavPanelList {
+  display: inline-block !important;
+  border-bottom: none !important;
+}
+
+.tabsNavPanelList span.tab_label {
+  padding: 12px 8px !important;
+  font-weight: 700 !important;
+  font-family: Tesco !important;
+  color: #00539f !important;
+  font-size: 16px !important;
+  vertical-align: middle !important;
+}
+
+.tabsNavPanelList.active span.tab_label {
+  border-bottom: #048EC3 solid 4px !important;
+}
+.tabsNavPanelList a {
+  font-weight: 700 !important;
+  font-family: 'Tesco' !important;
+  padding: 15px 15px 16px 15px !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  color: #00539f !important;
+}
+
+.tabsNavPanelList a:hover ,
+.tabsNavPanelList a:active
+{
+  background: #fff !important;
+  border:0px;
+  border-bottom: 2px solid #00539f;
+  text-decoration: none !important;
+  border-color: #008dc8 !important;
+  color: #008dc8 !important;
+}
+
+.tabsNavPanelLogoutList a:hover,
+.tabsNavPanelLogoutList a:active{
+  background: #fff !important;
+  border:0px !important;
+}
