@@ -27,13 +27,15 @@ export default class App extends React.PureComponent {
     const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
     const frontendHostPort = '80';
     const getCookie = (name) => {
+      let outValue = '';
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
       if (parts.length === 2) {
-        return parts.pop().split(';').shift();
+        outValue = parts.pop().split(';').shift();
       } else {
-        return 0;
+        outValue = 0;
       }
+      return outValue;
     };
     const token = getCookie('token');
     if (token && this.props.location.pathname.includes('login')) {
