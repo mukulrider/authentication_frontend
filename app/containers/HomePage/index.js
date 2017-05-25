@@ -5,6 +5,7 @@
  */
 
 import React, { PropTypes } from 'react';
+import { Jumbotron, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
@@ -20,8 +21,15 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             { name: 'description', content: 'Description of HomePage' },
           ]}
         />
-        <h1 className="text-center">Welcome to Compass Tool (beta)</h1>
-        <h3 className="text-center">Please navigate to the different modules using the top navigation bar</h3>
+        <div>
+          <Jumbotron>
+            <h1>Welcome to Compass Tool (beta)</h1>
+            <p>Please navigate to below modules to start exploring</p>
+          </Jumbotron>
+          <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+          <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+          <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
+        </div>
       </div>
     );
   }

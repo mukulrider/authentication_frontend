@@ -47,7 +47,8 @@ export function* doLogin() {
 /* GENERATE LOGIN TOKEN */
 export function* generateUserParams() {
   const login = yield select(selectLoginPageDomain());
-  const username = login.get('username');
+  const usernameCaseInsensitive = login.get('username');
+  const username = usernameCaseInsensitive.toLowerCase();
   try {
     const data = yield call(request,
       `http://${backendHostName}:${backendHostPort}/api/obtain-user-params/`);
