@@ -58,9 +58,9 @@ class Header extends Component {
   static defaultProps = {
     links: [
       { text: 'Login', icon: 'login', href: 'http://dvcmpweb00001uk.dev.global.tesco.org/login/' },
-      { text: 'Reporting', icon: 'reporting', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/competitor' },
+      { text: 'Reporting', icon: 'reporting', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/executive/' },
       { text: 'Pricing', icon: 'pricing', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing/' },
-      { text: 'Ranging', icon: 'ranging', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging' },
+      { text: 'Ranging', icon: 'ranging', href: 'http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging/' },
       { text: 'Tesco.com', icon: 'home', href: 'http://www.tesco.com/' },
       { text: 'Contact us', icon: 'telephone', href: 'http://www.tesco.com/help/contact/' },
       { text: 'Help', icon: 'help', href: 'http://www.tesco.com/help/' }],

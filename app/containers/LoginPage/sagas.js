@@ -34,6 +34,7 @@ export function* generateLogin() {
     document.cookie = `token=${data.token};domain=${frontendHostName};path=/`;
     window.location = `http://${frontendHostName}:${frontendHostPort}/`;
   } catch (err) {
+    alert('Unsuccessful login! Please try again!')
     window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
   }
 }

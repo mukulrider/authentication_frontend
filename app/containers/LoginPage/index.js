@@ -5,12 +5,16 @@
  */
 
 import Button from 'components/button';
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import Panel from 'components/panel';
+import FormHeader from 'components/form_header';
+import React, {PropTypes} from 'react';
+import {Col} from 'react-bootstrap';
+import {connect} from 'react-redux';
 import Helmet from 'react-helmet';
-import { createStructuredSelector } from 'reselect';
+import {createStructuredSelector} from 'reselect';
 import makeSelectLoginPage from './selectors';
-import { username, password, login, fetchUserParams } from './actions';
+import {username, password, login, fetchUserParams} from './actions';
+import Header from "../../components/header/index";
 
 export class LoginPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -19,39 +23,59 @@ export class LoginPage extends React.PureComponent { // eslint-disable-line reac
         <Helmet
           title="LoginPage"
           meta={[
-            { name: 'description', content: 'Description of LoginPage' },
+            {
+              name: 'description',
+              content: 'Necessary Login Page for using the tool',
+            },
           ]}
         />
-        <div style={{ fontSize: '14px' }}>
+        <div style={{fontFamily: 'Tesco'}}>
           <div className="row">
-            <div className="col-xs-3"></div>
-            <div className="col-xs-6">
-              <h1>Login</h1>
-              <h3>Username</h3>
-              <input
-                type="text" value={this.props.LoginPage.username}
-                name="username" placeholder="Username"
-                onChange={(e) => {
-                  this.props.onUsername(e.target.value);
-                }}
+            <div className="col-xs-12 col-md-4 col-md-offset-6 col-sm-8 col-sm-offset-2">
+              <FormHeader
+                title="Sign in to your account"
+                description="If you have a Tesco Dev account, please sign-in below"
+                style={{fontFamily: 'Tesco'}}
               />
-              <br />
-              <h3>Password</h3>
-              <input
-                type="password"
-                value={this.props.LoginPage.password}
-                name="password" placeholder="Password"
-                onChange={(e) => {
-                  this.props.onPassword(e.target.value);
-                }}
-              />
-              <br />
-              <Button
-                buttonType={'primary'} onClick={() => {
-                  this.props.onLogin();
-                  this.props.onLoginSuccessUserParam();
-                }}
-              >Sign In</Button>
+              <Panel>
+                <form >
+                  <h4 className="text-left"><b>Username</b></h4>
+                  <input
+                    style={{ fontSize: '16px'}}
+                    type="text"
+                    name="username"
+                    placeholder="a-tpx_id@dev.global.tesco.org"
+                    className="login-form-input"
+                    value={this.props.LoginPage.username}
+                    onChange={(e) => {
+                      this.props.onUsername(e.target.value);
+                    }}
+                  />
+                  <br />
+                  <h4 className="text-left"><b>Password</b></h4>
+                  <input
+                    style={{ fontSize: '16px'}}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="login-form-input"
+                    value={this.props.LoginPage.password}
+                    onChange={(e) => {
+                      this.props.onPassword(e.target.value);
+                    }}
+                  />
+                  <br />
+                  <Button
+                    type="submit"
+                    buttonType={'primary'}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      this.props.onLogin();
+                      this.props.onLoginSuccessUserParam();
+                    }}
+                  >Sign In</Button>
+                </form>
+              </Panel>
             </div>
           </div>
         </div>
