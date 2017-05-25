@@ -15,7 +15,8 @@ const backendHostPort = '8000';
 /* GENERATE LOGIN TOKEN */
 export function* generateLogin() {
   const login = yield select(selectLoginPageDomain());
-  const username = login.get('username');
+  const usernameCaseInsensitive = login.get('username');
+  const username = usernameCaseInsensitive.toLowerCase();
   const password = login.get('password');
 
   try {

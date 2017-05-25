@@ -11,8 +11,8 @@ import {
 } from './constants';
 
 const initialState = fromJS({
-  username: 'harmanjeet.singh@mu-sigma.com',
-  password: 'random@123',
+  username: '',
+  password: '',
 });
 
 
