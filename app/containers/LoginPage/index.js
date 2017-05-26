@@ -29,14 +29,13 @@ export class LoginPage extends React.PureComponent { // eslint-disable-line reac
             },
           ]}
         />
-        <div style={{fontFamily: 'Tesco'}}>
+        <div style={{fontFamily: 'Tesco', }}>
           <div className="row">
             <div className="col-xs-12 col-md-4 col-md-offset-6 col-sm-8 col-sm-offset-2">
               <FormHeader
                 title="Sign in to your account"
-                description="If you have a Tesco Dev account, please sign-in below"
-                style={{fontFamily: 'Tesco'}}
               />
+              <p style={{ fontFamily: 'Tesco'}} >Please use your Tesco GLOBAL-DEV account to login below</p>
               <Panel>
                 <form >
                   <h4 className="text-left"><b>Username</b></h4>

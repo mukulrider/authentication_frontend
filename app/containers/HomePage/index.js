@@ -13,6 +13,7 @@ import makeSelectHomePage from './selectors';
 import Invoice from '../../assets/images/invoice.svg';
 import Tag from '../../assets/images/tag.svg';
 import Checklist from '../../assets/images/checklist.svg';
+import './style.scss';
 
 export class HomePage extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -34,47 +35,54 @@ export class HomePage extends React.PureComponent {
               Please navigate to below modules to start exploring
             </p>
           </Jumbotron>
-          <Col xs={12} md={4}>
-            <div style={{ textAlign: 'center'}}>
-              <a href="">
+
+          <div className="row moduleRow">
+
+            <div className="col-xs-4 moduleIconDiv">
+              <div className="moduleCircle">
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/executive/" style={{textDecoration:'None'}}>
+                  <img
+                    src={Invoice} alt="invoice"
+                    className="moduleIcon"/>
+                  <br />
+
+                  <div className="moduleHeading">
+                      Reporting
+                  </div>
+                </a>
+              </div>
+              </div>
+
+            <div className="col-xs-4 moduleIconDiv">
+              <div className="moduleCircle">
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing/" style={{textDecoration:'None'}}>
                 <img
-                  src={Invoice} alt="invoice"
-                  style={{ width: '20%', margin: '0 auto', display: 'block' }}
-                />
+                  src={Tag} alt="tag"
+                  className="moduleIcon"/>
                 <br />
-                <a
-                  href="http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/executive/"
-                  style={{ fontFamily: 'Tesco', fontsize: '25px', textDecoration: 'None' }}
-                >
-                    Reporting
-                  </a>
-              </a>
+                <div className="moduleHeading">
+                  Pricing
+                </div>
+                </a>
+              </div>
             </div>
-          </Col>
-          <Col xs={12} md={4}>
-            <div style={{ textAlign: 'center' }}>
-              <img
-                src={Tag} alt="tag"
-                style={{ width: '20%', margin: '0 auto', display: 'block' }}
-              />
-              <br />
-              <a href="http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing/">
-                Pricing
-              </a>
+
+            <div className="col-xs-4 moduleIconDiv">
+              <div className="moduleCircle">
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging/" style={{textDecoration:'None'}}>
+                <img
+                  src={Checklist} alt="checklist"
+                  className="moduleIcon"/>
+                <br />
+                <div className="moduleHeading">
+                  Ranging
+                </div>
+                </a>
+              </div>
             </div>
-          </Col>
-          <Col xs={12} md={4}>
-            <div style={{ textAlign: 'center' }}>
-              <img
-                src={Checklist} alt="checklist"
-                style={{ width: '20%', margin: '0 auto', display: 'block' }}
-              />
-              <br />
-              <a href="http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging/">
-                Ranging
-              </a>
-            </div>
-          </Col>
+
+
+          </div>
         </div>
       </div>
     );
