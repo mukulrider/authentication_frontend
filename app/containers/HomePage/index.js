@@ -37,7 +37,6 @@ export class HomePage extends React.PureComponent {
           </Jumbotron>
 
           <div className="row moduleRow">
-
             <div className="col-xs-4 moduleIconDiv">
               <div className="moduleCircle">
                 <a href="http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/executive/" style={{textDecoration:'None'}}>
@@ -45,7 +44,6 @@ export class HomePage extends React.PureComponent {
                     src={Invoice} alt="invoice"
                     className="moduleIcon"/>
                   <br />
-
                   <div className="moduleHeading">
                       Reporting
                   </div>
@@ -80,7 +78,6 @@ export class HomePage extends React.PureComponent {
                 </a>
               </div>
             </div>
-
 
           </div>
         </div>
