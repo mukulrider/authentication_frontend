@@ -25,8 +25,8 @@ export default class App extends React.PureComponent {
   };
 
   componentWillMount() {
-    const frontendHostName = '172.20.181.12';
-    const frontendHostPort = '3000';
+    const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+    const frontendHostPort = '';
     const getCookie = (name) => {
       let outValue = '';
       const value = `; ${document.cookie}`;

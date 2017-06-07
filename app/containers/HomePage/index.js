@@ -39,7 +39,7 @@ export class HomePage extends React.PureComponent {
           <div className="row moduleRow">
             <div className="col-xs-4 moduleIconDiv">
               <div className="moduleCircle">
-                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:81/sales/executive/" style={{textDecoration:'None'}}>
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org/reporting/executive/" style={{textDecoration:'None'}}>
                   <img
                     src={Invoice} alt="invoice"
                     className="moduleIcon"/>
@@ -49,25 +49,11 @@ export class HomePage extends React.PureComponent {
                   </div>
                 </a>
               </div>
-              </div>
-
-            <div className="col-xs-4 moduleIconDiv">
-              <div className="moduleCircle">
-                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:83/pricing/" style={{textDecoration:'None'}}>
-                <img
-                  src={Tag} alt="tag"
-                  className="moduleIcon"/>
-                <br />
-                <div className="moduleHeading">
-                  Pricing
-                </div>
-                </a>
-              </div>
             </div>
 
             <div className="col-xs-4 moduleIconDiv">
               <div className="moduleCircle">
-                <a href="http://dvcmpweb00001uk.dev.global.tesco.org:82/ranging/" style={{textDecoration:'None'}}>
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org/ranging/scenario-tracker" style={{textDecoration:'None'}}>
                 <img
                   src={Checklist} alt="checklist"
                   className="moduleIcon"/>
@@ -75,6 +61,20 @@ export class HomePage extends React.PureComponent {
                 <div className="moduleHeading">
                   Ranging
                 </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="col-xs-4 moduleIconDiv">
+              <div className="moduleCircle">
+                <a href="http://dvcmpweb00001uk.dev.global.tesco.org/pricing/home/" style={{textDecoration:'None'}}>
+                  <img
+                    src={Tag} alt="tag"
+                    className="moduleIcon"/>
+                  <br />
+                  <div className="moduleHeading">
+                    Pricing
+                  </div>
                 </a>
               </div>
             </div>

@@ -7,10 +7,10 @@ import {
   USER_PARAM,
 } from './constants';
 
-const frontendHostName = '172.20.181.12';
-const frontendHostPort = '3000';
-const backendHostName = '172.20.181.12';
-const backendHostPort = '8000';
+const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+const frontendHostPort = '';
+const backendHostName = 'dvcmpapp00003uk.dev.global.tesco.org';
+const backendHostPort = '83';
 
 /* GENERATE LOGIN TOKEN */
 export function* generateLogin() {
