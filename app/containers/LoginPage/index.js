@@ -69,8 +69,16 @@ export class LoginPage extends React.PureComponent { // eslint-disable-line reac
                     buttonType={'primary'}
                     onClick={(e) => {
                       e.preventDefault();
+                      localStorage.clear();
+                      const frontendHostName = '10.1.181.100';
+                      document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
+                      document.cookie = 'user'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
+                      document.cookie = 'designation'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
+                      document.cookie = 'buying_controller'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
+                      document.cookie = 'buyer'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
+                      document.cookie = 'login_timestamp'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${frontendHostName};Path=/;`);
                       this.props.onLogin();
-                      this.props.onLoginSuccessUserParam();
+                      // this.props.onLoginSuccessUserParam();
                     }}
                   >Sign In</Button>
                 </form>

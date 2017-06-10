@@ -1,11 +1,14 @@
 import { selectLoginPageDomain } from 'containers/LoginPage/selectors';
-import { take, call, select, cancel, takeLatest } from 'redux-saga/effects';
+import { take, call, select, cancel, takeLatest, put } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import request from 'utils/request';
 import {
   LOGIN,
   USER_PARAM,
 } from './constants';
+import {
+  fetchUserParams,
+} from "./actions";
 
 const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
 const frontendHostPort = '';
@@ -32,10 +35,9 @@ export function* generateLogin() {
       });
 
     document.cookie = `token=${data.token};domain=${frontendHostName};path=/`;
-    window.location = `http://${frontendHostName}:${frontendHostPort}/`;
+    yield put(fetchUserParams())
   } catch (err) {
-    alert('Unsuccessful login! Please try again!')
-    window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
+    alert('Unsuccessful login! Please try again!');
   }
 }
 
@@ -64,8 +66,10 @@ export function* generateUserParams() {
     document.cookie = `buying_controller=${userFilteredData[0].buying_controller};domain=${frontendHostName};path=/`;
     document.cookie = `buyer=${userFilteredData[0].buyer};domain=${frontendHostName};path=/`;
     document.cookie = `login_timestamp=${userFilteredData[0].login_timestamp};domain=${frontendHostName};path=/`;
+    window.location = `http://${frontendHostName}:${frontendHostPort}/`;
   } catch (err) {
     console.log('Some error happened, check LoginPage sagas');
+    window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
   }
 }
 

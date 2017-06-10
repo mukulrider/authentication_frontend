@@ -216,15 +216,15 @@ class Header extends Component {
                               <div>
                                 <MenuItem
                                   onClick={() => {
-                                    const hostName = 'dvcmpweb00001uk.dev.global.tesco.org';
-                                    const hostPort = '';
+                                    const frontendHostName = 'dvcmpweb00001uk.dev.global.tesco.org';
+                                    const frontendHostPort = '';
                                     document.cookie = 'token'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                                     document.cookie = 'user'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                                     document.cookie = 'designation'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                                     document.cookie = 'buying_controller'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                                     document.cookie = 'buyer'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
                                     document.cookie = 'login_timestamp'.concat(`=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=${hostName};Path=/;`);
-                                    window.location = `http://${hostName}:${hostPort}/login/`;
+                                    window.location = `http://${frontendHostName}:${frontendHostPort}/login/`;
                                   }}
                                 >Logout</MenuItem>
                               </div> : '';
